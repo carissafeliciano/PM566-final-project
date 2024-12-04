@@ -77,7 +77,13 @@ p1_boxplot <- ggplot(seer) +
     fill = "Race/Ethnicity") +
   scale_x_discrete(labels = race_xaxis)
 
-ggplotly(p1_boxplot)
+p1_ggplotly <- ggplotly(p1_boxplot) |>
+  layout(
+    autosize = TRUE,
+    margin = list(t = 100)  # Adjust top margin
+  )
+
+p1_ggplotly
 ```
 
 ```{r, echo=FALSE}
