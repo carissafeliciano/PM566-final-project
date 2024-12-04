@@ -9,8 +9,8 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "PM566-final-project",
+    "title": "Racial-Ethnic Disparities in Survival Among Young Non-Small Cell Lung Cancer Patients: A SEER Analysis",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Introduction\nLung cancer is the leading cause of cancer deaths for both men and women in the US, with non-small cell lung cancer (NSCLC) accounting for 80-85% of cases. While several studies have investigated racial/ethnic disparities among all lung cancer patients, there is limited data characterizing racial/ethnic disparities among young NSCLC patients (aged ≤50 years). This project evaluated whether survival time was associated with race/ethnicity among among young adults (aged 18-50 years) with non-small cell lung cancer (NSCLC). Additionally, this project aimed to determine whether any differences in survival across the racial/ethnic groups could be attributed to differences in the frequency distributions of sex, histologic subtype, and stage at diagnosis. This project utilized the Surveillance, Epidemiology, and End Results (SEER) 17 Database and included patients aged 18 to 50 years with an incident diagnosis of non-small cell lung cancer between January 1, 2011 and December 31, 2021, first primary malignancy, and residence in California (n = 4427).\nThe full report can be downloaded here [INSERT LINK].\n\n\nInteractive Visualizations"
   }
 ]

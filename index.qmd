@@ -1,5 +1,5 @@
 ---
-title: "PM566-final-project"
+title: "Racial-Ethnic Disparities in Survival Among Young Non-Small Cell Lung Cancer Patients: A SEER Analysis"
 author: "Carissa Feliciano"
 output:
   html_document:
@@ -7,10 +7,199 @@ output:
     toc_float: TRUE
 ---
 
-This is a Quarto website.
+# Introduction
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Lung cancer is the leading cause of cancer deaths for both men and women in the US, with non-small cell lung cancer (NSCLC) accounting for 80-85% of cases. While several studies have investigated racial/ethnic disparities among all lung cancer patients, there is limited data characterizing racial/ethnic disparities among young NSCLC patients (aged ≤50 years). This project evaluated whether survival time was associated with race/ethnicity among among young adults (aged 18-50 years) with non-small cell lung cancer (NSCLC). Additionally, this project aimed to determine whether any differences in survival across the racial/ethnic groups could be attributed to differences in the frequency distributions of sex, histologic subtype, and stage at diagnosis. This project utilized the Surveillance, Epidemiology, and End Results (SEER) 17 Database and included patients aged 18 to 50 years with an incident diagnosis of non-small cell lung cancer between January 1, 2011 and December 31, 2021, first primary malignancy, and residence in California (n = 4427).
 
-```{r}
-1 + 1
+The full report can be downloaded here \[INSERT LINK\].
+
+# Interactive Visualizations
+
+```{r setup, message=FALSE, echo=FALSE, warning=FALSE}
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(DT)
+library(knitr)
+library(boot)
+```
+
+```{r, echo=FALSE}
+# Initialize code chunk options
+opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  eval=TRUE,
+  echo = TRUE,
+  cache = FALSE,
+  fig.width = 7, 
+  fig.align = 'center',
+  fig.asp = 0.618,
+  out.width = "700px")
+```
+
+```{r load-data, echo=FALSE}
+source("process_SEER_data.R")
+```
+
+```{r, echo=FALSE}
+source("process_SEER_data.R")
+p1_hist <- ggplot(seer, aes(x = survival, fill = race)) +
+   geom_histogram(alpha = 0.7, position = "identity", bins = 30) +
+  labs(
+    title = "Histogram of Survival Months by Race",
+    x = "Survival Months",
+    y = "Count",
+    fill = "Race"
+  ) +
+  theme_minimal()
+
+ggplotly(p1_hist)
+```
+
+```{r, echo=FALSE}
+# Boxplot of survival time by race/ethnicity 
+
+race_xaxis <- c(
+  "Non-Hispanic White" = "NHW",
+  "Non-Hispanic Black" = "NHB",
+  "Hispanic (All Races)" = "Hispanic",
+  "Non-Hispanic Asian or Pacific Islander" = "NHAPI",
+  "Non-Hispanic American Indian/Alaska Native" = "NHAIAN"
+)
+
+p1_boxplot <- ggplot(seer) +
+  geom_boxplot(mapping = aes(x = race, y = survival, fill = race)) +
+  labs(
+    title = "Survival Time by Race/Ethnicity",
+    x = "Race/Ethnicity", 
+    y = "Survival Time (Months)",
+    fill = "Race/Ethnicity") +
+  scale_x_discrete(labels = race_xaxis)
+
+ggplotly(p1_boxplot)
+```
+
+```{r, echo=FALSE}
+# Barchart of median survival time with 95% CI by race/ethnicity and sex
+# Function to compute median and 95% CI using bootstrapping
+median_ci <- function(data, indices) {
+  boot_data <- data[indices]
+  med <- median(boot_data)
+  return(med)
+}
+
+# Calculate median survival time
+# Perform bootstrapping to get 95% CI for median
+survival_race_sex <- seer |>
+  group_by(race, sex) |>
+  summarise(
+    med_survival = median(survival),
+    boot_obj = list(boot(survival, median_ci, R = 1000)),
+    lower_ci = boot.ci(boot_obj[[1]], type = "perc")$percent[4],  # 2.5th percentile
+    upper_ci = boot.ci(boot_obj[[1]], type = "perc")$percent[5]   # 97.5th percentile
+  )
+
+survival_race_sex$hover_text <- paste(
+  "Race: ", survival_race_sex$race, 
+  "<br>Sex: ", survival_race_sex$sex,
+  "<br>Median Survival: ", survival_race_sex$med_survival, "months", 
+  "<br>95% CI: ", sprintf("%.2f", survival_race_sex$lower_ci), "-", sprintf("%.2f", survival_race_sex$upper_ci)
+)
+
+p2_bar_survival_race_sex <- ggplot(survival_race_sex) +
+  geom_bar(
+      mapping = aes(x = race, y = med_survival, fill = sex, text = hover_text), 
+      stat = "identity", 
+      position = position_dodge(width = 0.9),
+      color = "black"
+    ) +
+  geom_errorbar(
+      mapping = aes(x = race, ymin = lower_ci, ymax = upper_ci, group = sex, fill = sex),
+      position = position_dodge(width = 0.9), 
+      width = 0.25
+    ) +
+  labs(
+      title = "Median Survival Time with 95% CI by Race/Ethnicity and Sex",
+      x = "Race/Ethnicity", 
+      y = "Median Survival Time (Months)",
+      fill = "Sex"
+    ) +
+  scale_fill_manual(values = c("Male" = "cornflowerblue", "Female" = "lightcoral")) +
+  scale_x_discrete(labels = race_xaxis)
+
+ggplotly(p2_bar_survival_race_sex, tooltip = "text")
+```
+
+```{r, echo=FALSE}
+#Barchart of median survival time with 95% CI by race/ethnicity and stage at diagnosis
+
+survival_race_stage <- seer |>
+  filter(stage != "Unknown/unstaged") |>
+  group_by(race, stage) |>
+  summarise(
+    med_survival = median(survival),
+    boot_obj = list(boot(survival, median_ci, R = 1000)),
+    lower_ci = boot.ci(boot_obj[[1]], type = "perc")$percent[4],  # 2.5th percentile
+    upper_ci = boot.ci(boot_obj[[1]], type = "perc")$percent[5]   # 97.5th percentile
+  )
+
+survival_race_stage$hover_text <- paste(
+  "Race: ", survival_race_stage$race, 
+  "<br>Stage: ", survival_race_stage$stage,
+  "<br>Median Survival: ", survival_race_stage$med_survival, "months", 
+  "<br>95% CI: ", sprintf("%.2f", survival_race_stage$lower_ci), "-", sprintf("%.2f", survival_race_stage$upper_ci)
+)
+
+p3_bar_survival_race_stage <- ggplot(survival_race_stage) +
+  geom_bar(mapping = aes(x = race, y = med_survival, fill = stage, text = hover_text), 
+           stat = "identity", 
+           position = position_dodge(width = 0.9), 
+           color = "black") +
+  geom_errorbar(
+      mapping = aes(x = race, ymin = lower_ci, ymax = upper_ci, group = stage, fill = stage),
+      position = position_dodge(width = 0.9), 
+      width = 0.25
+    ) +
+  scale_fill_brewer(palette = "YlOrBr") +
+  labs(
+    title = "Median Survival Time with 95% CI by Race/Ethnicity and Stage at Diagnosis",
+    x = "Race/Ethnicity", 
+    y = "Median Survival Time (Months)",
+    fill = "Stage at Diagnosis") +
+  scale_x_discrete(labels = race_xaxis)
+
+ggplotly(p3_bar_survival_race_stage, tooltip = "text")
+```
+
+```{r, echo=FALSE}
+#Barchart of median survival time with 95% CI by race/ethnicity and histologic diagnosis
+survival_race_hist <- seer |>
+  group_by(race, histology) |>
+  summarise(
+    med_survival = median(survival),
+    boot_obj = list(boot(survival, median_ci, R = 1000)),
+    lower_ci = boot.ci(boot_obj[[1]], type = "perc")$percent[4],  # 2.5th percentile
+    upper_ci = boot.ci(boot_obj[[1]], type = "perc")$percent[5]   # 97.5th percentile
+  )
+
+p4_bar_survival_race_hist <- ggplot(survival_race_hist) +
+  geom_bar(mapping = aes(x = race, y = med_survival, fill = histology), 
+           stat = "identity", 
+           position = position_dodge(width = 0.9), 
+           color = "black") +
+  geom_errorbar(
+      mapping = aes(x = race, ymin = lower_ci, ymax = upper_ci, group = histology, fill = histology),
+      position = position_dodge(width = 0.9), 
+      width = 0.25
+    ) +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    title = "Median Survival Time with 95% CI by Race/Ethnicity and Histologic Diagnosis",
+    x = "Race/Ethnicity", 
+    y = "Median Survival Time (Months)",
+    fill = "Histologic Subtype") +
+  scale_x_discrete(labels = race_xaxis) 
+
+ggplotly(p4_bar_survival_race_hist, tooltip = "text")
 ```

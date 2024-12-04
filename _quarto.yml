@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "PM566-final-project"
+  title: "PM-566 Final Project"
   navbar:
     left:
       - href: index.qmd
@@ -12,7 +12,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: lumen
     css: styles.css
     toc: true
 
