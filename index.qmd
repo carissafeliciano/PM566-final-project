@@ -11,7 +11,7 @@ output:
 
 Lung cancer is the leading cause of cancer deaths for both men and women in the US, with non-small cell lung cancer (NSCLC) accounting for 80-85% of cases. While several studies have investigated racial/ethnic disparities among all lung cancer patients, there is limited data characterizing racial/ethnic disparities among young NSCLC patients (aged ≤50 years). This project evaluated whether survival time was associated with race/ethnicity among among young adults (aged 18-50 years) with non-small cell lung cancer (NSCLC). Additionally, this project aimed to determine whether any differences in survival across the racial/ethnic groups could be attributed to differences in the frequency distributions of sex, histological subtype, and stage at diagnosis. This project utilized the Surveillance, Epidemiology, and End Results (SEER) 17 Database and included patients aged 18 to 50 years with an incident diagnosis of non-small cell lung cancer between January 1, 2011 and December 31, 2021, first primary malignancy, and residence in California (n = 4427).
 
-The full report can be downloaded [here](https://github.com/carissafeliciano/PM566-final-project/blob/master/Final_CarissaFeliciano.pdf).
+The full report can be downloaded [here](https://github.com/carissafeliciano/PM566-final-project/blob/master/docs/Final_CarissaFeliciano.pdf).
 
 Instructions on how to access the SEER-17 dataset can be found [here](https://github.com/carissafeliciano/PM566-final-project/blob/master/data/readme.md).
 
