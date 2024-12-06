@@ -1,15 +1,15 @@
 ---
-title: "PM-566 Final Project"
+title: "Racial/Ethnic Disparities in Survival among Young Patients with Non-Small Cell Lung Cancer (2011-2021): A SEER Analysis"
 author: "Carissa Feliciano"
 format:
   pdf:
     fig-pos: 'H'
+    font:
+      title: "LARGE"
 embed-resources: TRUE
 echo: FALSE
 geometry: margin=1in
 ---
-
-# Racial/Ethnic Disparities in Survival among Young Patients with Non-Small Cell Lung Cancer (2011-2021): A SEER Analysis
 
 # Introduction
 
