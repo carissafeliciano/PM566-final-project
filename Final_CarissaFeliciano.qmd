@@ -613,14 +613,14 @@ This project found that among patients aged 18 to 50 years diagnosed in Californ
 
 2.  Howlader N, Noone AM, Krapcho M, et al. SEER Cancer Statistics Review 1975-2018. Published April 15, 2021. Accessed October 27, 2024. https://seer.cancer.gov/archive/csr/1975_2018/ results_merged/sect_01_overview.pdf
 
-3.  Thomas A, Chen Y, Yu T, Jakopovic M, Giaccone G. Trends and Characteristics of Young Non-Small Cell Lung Cancer Patients in the United States. Front Oncol. 2015;5:113.
+3.  Thomas A, Chen Y, Yu T, Jakopovic M, Giaccone G. Trends and characteristics of young non-small cell lung cancer patients in the United States. *Front Oncol*. 2015;5:113.
 
-4.  Suidan AM, Roisman L, Belilovski Rozenblum A, et al. Lung Cancer in Young Patients: Higher Rate of Driver Mutations and Brain Involvement, but Better Survival. J Glob Oncol. 2019;5:1-8.
+4.  Suidan AM, Roisman L, Belilovski Rozenblum A, et al. Lung cancer in young patients: higher rate of driver mutations and brain involvement, but better survival.. *J Glob Oncol*. 2019;5:1-8.
 
-5.  Ellis L, Canchola AJ, Spiegel D, Ladabaum U, Haile R, Gomez SL. Racial and Ethnic Disparities in Cancer Survival: The Contribution of Tumor, Sociodemographic, Institutional, and Neighborhood Characteristics. J Clin Oncol. 2018;36(1):25-33.
+5.  Ellis L, Canchola AJ, Spiegel D, Ladabaum U, Haile R, Gomez SL. Racial and ethnic disparities in cancer survival: the contribution of tumor, sociodemographic, institutional, and neighborhood characteristics. *J Clin Oncol*. 2018;36(1):25-33.
 
 6.  Surveillance, Epidemiology, and End Results (SEER) Program, National Cancer Institute. SEER\*Stat Database: Incidence - SEER Research Data, 17 Registries (excl AK), Nov 2023 Sub (2000-2021). National Cancer Institute, DCCPS, Surveillance Research Program. Released April 2024. Accessed October 17, 2024.
 
-7.  Hansen RN, Zhang Y, Seal B, et al. Long-term survival trends in patients with unresectable stage III non-small cell lung cancer receiving chemotherapy and radiation therapy: a SEER cancer registry analysis. BMC Cancer. 2020;20(1):276.
+7.  Hansen RN, Zhang Y, Seal B, et al. Long-term survival trends in patients with unresectable stage III non-small cell lung cancer receiving chemotherapy and radiation therapy: a SEER cancer registry analysis. *BMC Cancer*. 2020;20(1):276.
 
-8.  Ganti AK, Klein AB, Cotarla I, Seal B, Chou E. Update of Incidence, Prevalence, Survival, and Initial Treatment in Patients With Non-Small Cell Lung Cancer in the US. JAMA Oncol. 2021;7(12):1824-32.
+8.  Ganti AK, Klein AB, Cotarla I, Seal B, Chou E. Update of incidence, prevalence, survival, and initial treatment in patients with non–small cell lung cancer in the US. *JAMA Oncol*. 2021;7(12):1824-32.
