@@ -1,5 +1,5 @@
 ---
-title: "Racial/Ethnic Disparities in Survival among Young Patients with Non-Small Cell Lung Cancer Patients: A SEER Analysis"
+title: "Racial/Ethnic Disparities in Survival among Young Patients with Non-Small Cell Lung Cancer (2011-2021): A SEER Analysis"
 author: "Carissa Feliciano"
 output:
   html_document:
@@ -100,7 +100,7 @@ p1_ggplotly
 
 <br>
 
-The boxplots display the distribution of survival times for each racial/ethnic group. The line within each box represents the median survival time. The upper bound of the box represents the 75th percentile (Q3), and the lower bound of the box represents the 25th percentile (Q1). The upper whisker is the maximum (highest value within 1.5\*IQR of Q3), and the lower whisker is the minimum (lowest value within 1.5\*IQR of Q1). Points outside the whiskers represent outliers. NHW, non-Hispanic White; NHB, non-Hispanic Black; Hispanic, Hispanic all races; NHAPI, non-Hispanic Asian or Pacific Islander; NHAIAN, non-Hispanic American Indian/Alaska Native.
+The boxplots display the distribution of survival times for each racial/ethnic group. The line within each box represents the median survival time. The upper bound of the box represents the 75th percentile (Q3), and the lower bound of the box represents the 25th percentile (Q1). The upper whisker is the highest value within 1.5\*IQR of Q3, and the lower whisker is the lowest value within 1.5\*IQR of Q1. Points outside the whiskers represent outliers. NHW, non-Hispanic White; NHB, non-Hispanic Black; Hispanic, Hispanic all races; NHAPI, non-Hispanic Asian or Pacific Islander; NHAIAN, non-Hispanic American Indian/Alaska Native.
 
 The median survival time was lowest for the NHB group (11.0 months) and highest for the NHAIAN group (21.5 months). The median survival time was similar for the NHW (19 months), Hispanic (18 months), and NHAPI (19 months) groups.
 
