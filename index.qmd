@@ -9,7 +9,7 @@ output:
 
 # Introduction
 
-Lung cancer is the leading cause of cancer deaths for both men and women in the US, with non-small cell lung cancer (NSCLC) accounting for 80-85% of cases. While several studies have investigated racial/ethnic disparities among all lung cancer patients, there is limited data characterizing racial/ethnic disparities among young NSCLC patients (aged ≤50 years). This project evaluated whether survival time was associated with race/ethnicity among among young adults (aged 18-50 years) with non-small cell lung cancer (NSCLC). Additionally, this project aimed to determine whether any differences in survival across the racial/ethnic groups could be attributed to differences in the frequency distributions of sex, histological subtype, and stage at diagnosis. This project utilized the Surveillance, Epidemiology, and End Results (SEER) 17 Database and included patients aged 18 to 50 years with an incident diagnosis of non-small cell lung cancer between January 1, 2011 and December 31, 2021, first primary malignancy, and residence in California (n = 4427).
+Lung cancer is the leading cause of cancer deaths for both men and women in the U.S., with non-small cell lung cancer (NSCLC) accounting for 80-85% of cases. While several studies have investigated racial/ethnic disparities among all lung cancer patients, there is limited data characterizing racial/ethnic disparities among young NSCLC patients (aged ≤50 years). This project evaluated whether survival time was associated with race/ethnicity among young adults aged 18-50 years with NSCLC. Additionally, this project aimed to determine whether any differences in survival across the racial/ethnic groups could be attributed to differences in the frequency distributions of sex, stage at diagnosis, and histological diagnosis. This project utilized the Surveillance, Epidemiology, and End Results (SEER) 17 Database. This project included patients aged 18 to 50 years who were diagnosed in California with first primary NSCLC between January 1, 2011 and December 31, 2021 (n = 4384). Individuals with missing survival data and missing race/ethnicity data were excluded from the analyses.
 
 The full report can be downloaded [here](https://github.com/carissafeliciano/PM566-final-project/blob/master/docs/Final_CarissaFeliciano.pdf).
 
@@ -92,7 +92,7 @@ p1_boxplot <- ggplot(seer) +
 p1_ggplotly <- ggplotly(p1_boxplot) |>
   layout(
     autosize = TRUE,
-    margin = list(t = 100)  # Adjust top margin
+    margin = list(t = 100)
   )
 
 p1_ggplotly
@@ -100,7 +100,7 @@ p1_ggplotly
 
 <br>
 
-The boxplots display the distribution of survival times for each racial/ethnic group. The line within each box represents the median survival time. The upper bound of the box represents the 75th percentile (Q3), and the lower bound of the box represents the 25th percentile (Q1). The upper whisker is the highest value within 1.5\*IQR of Q3, and the lower whisker is the lowest value within 1.5\*IQR of Q1. Points outside the whiskers represent outliers. NHW, non-Hispanic White; NHB, non-Hispanic Black; Hispanic, Hispanic all races; NHAPI, non-Hispanic Asian or Pacific Islander; NHAIAN, non-Hispanic American Indian/Alaska Native.
+The boxplots display the distribution of survival times for each racial/ethnic group. The line within each box represents the median survival time. The upper bound of the box represents the 75th percentile (Q3), and the lower bound of the box represents the 25th percentile (Q1). The upper whisker (maximum) is the highest value within 1.5\*IQR of Q3, and the lower whisker (minimum) is the lowest value within 1.5\*IQR of Q1. Points outside the whiskers represent outliers. NHW, non-Hispanic White; NHB, non-Hispanic Black; Hispanic, Hispanic all races; NHAPI, non-Hispanic Asian or Pacific Islander; NHAIAN, non-Hispanic American Indian/Alaska Native.
 
 The median survival time was lowest for the NHB group (11.0 months) and highest for the NHAIAN group (21.5 months). The median survival time was similar for the NHW (19 months), Hispanic (18 months), and NHAPI (19 months) groups.
 
