@@ -9,7 +9,7 @@ echo: FALSE
 geometry: margin=1in
 ---
 
-# Racial/Ethnic Disparities in Survival among Young Adult Patients with Non-Small Cell Lung Cancer (2011-2021): A SEER Analysis
+# Racial/Ethnic Disparities in Survival among Young Patients with Non-Small Cell Lung Cancer (2011-2021): A SEER Analysis
 
 # Introduction
 
