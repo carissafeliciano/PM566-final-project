@@ -361,8 +361,7 @@ p2_bar_survival_race_sex <- ggplot(survival_race_sex) +
     axis.title = element_text(size = 10),
     axis.title.x = element_text(margin = margin(t = 10)),
     axis.title.y = element_text(margin = margin(r = 10)),
-    legend.position = "bottom",
-    legend.background = element_rect(color = "black", fill = NA),
+    legend.background = element_rect(color = NA, fill = NA),
     legend.text = element_text(size = 8),
     legend.title = element_text(size = 9),
     legend.key.size = unit(0.4, "cm")
